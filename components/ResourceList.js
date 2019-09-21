@@ -49,7 +49,7 @@ class ResourceListWithProducts extends React.Component {
             <Card>
               <ResourceList
                 showHeader
-                resourceName={{ singular: 'Product', plural: 'Products' }}
+                resourceName={{ singular: 'Order', plural: 'Orders' }}
                 items={data.nodes}
                 renderItem={(item) => {
                   return (
