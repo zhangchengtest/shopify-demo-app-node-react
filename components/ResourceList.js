@@ -40,7 +40,7 @@ class ResourceListWithProducts extends React.Component {
 
     const twoWeeksFromNow = new Date(Date.now() + 12096e5).toDateString();
     return (
-      <Query query={GET_ORDERS_BY_ID} variables={{ ids: [store.get('ids') ]}}>
+      <Query query={GET_ORDERS_BY_ID} variables={{ ids: store.get('ids') }}>
         {({ data, loading, error }) => {
           if (loading) { return <div>Loading…</div>; }
           if (error) { return <div>{error.message}</div>; }
