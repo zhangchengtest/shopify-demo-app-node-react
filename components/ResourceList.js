@@ -33,7 +33,7 @@ const GET_PRODUCTS_BY_ID = gql`
                           id
                           
                         }
-                  }
+                  
                   pageInfo {
                     hasNextPage
                   }
