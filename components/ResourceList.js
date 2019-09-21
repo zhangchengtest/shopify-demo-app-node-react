@@ -15,26 +15,11 @@ const GET_PRODUCTS_BY_ID = gql`
   query hhgetProducts($ids: [ID!]!) {
     nodes(ids: $ids) {
       ... on Order {
-        title
-        handle
-        descriptionHtml
+        name
+        email
         id
-        images(first: 1) {
-          edges {
-            node {
-              originalSrc
-              altText
-            }
-          }
-        }
-        variants(first: 1) {
-          edges {
-            node {
-              price
-              id
-            }
-          }
-        }
+       
+        
       }
     }
   }
