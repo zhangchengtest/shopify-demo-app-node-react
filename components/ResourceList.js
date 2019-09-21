@@ -52,8 +52,6 @@ class ResourceListWithProducts extends React.Component {
                 resourceName={{ singular: 'Product', plural: 'Products' }}
                 items={data.nodes}
                 renderItem={(item) => {
-                 
-                  const price = item.variants.edges[0].node.price;
                   return (
                     <ResourceList.Item
                       id={item.id}
@@ -73,11 +71,9 @@ class ResourceListWithProducts extends React.Component {
                           </h3>
                         </Stack.Item>
                         <Stack.Item>
-                          <p>${price}</p>
+                          <p>${name}</p>
                         </Stack.Item>
-                        <Stack.Item>
-                          <p>Expires on {twoWeeksFromNow} </p>
-                        </Stack.Item>
+                       
                       </Stack>
                     </ResourceList.Item>
                   );
