@@ -14,7 +14,7 @@ import { Context } from '@shopify/app-bridge-react';
 const GET_PRODUCTS_BY_ID = gql`
   query hhgetProducts($ids: [ID!]!) {
     nodes(ids: $ids) {
-      ... on Product {
+      ... on Produc {
         title
         handle
         descriptionHtml
