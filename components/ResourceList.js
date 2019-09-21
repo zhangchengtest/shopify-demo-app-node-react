@@ -12,7 +12,7 @@ import { Redirect } from '@shopify/app-bridge/actions';
 import { Context } from '@shopify/app-bridge-react';
 
 const GET_ORDERS_BY_ID = gql`
-  query getO($ids: Order) {
+  query getO($ids: [ID!]!) {
     nodes(ids: $ids) {
       ... on Order {
         name
@@ -40,7 +40,7 @@ class ResourceListWithProducts extends React.Component {
 
     const twoWeeksFromNow = new Date(Date.now() + 12096e5).toDateString();
     return (
-      <Query query={GET_ORDERS_BY_ID} >
+      <Query query={GET_ORDERS_BY_ID} variables={{ ids: ['Order']}}>
         {({ data, loading, error }) => {
           if (loading) { return <div>Loading…</div>; }
           if (error) { return <div>{error.message}</div>; }
