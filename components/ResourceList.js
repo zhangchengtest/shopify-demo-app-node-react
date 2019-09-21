@@ -27,13 +27,12 @@ import { Context } from '@shopify/app-bridge-react';
 const GET_PRODUCTS_BY_ID = gql`
               query {
                 orders(first: 3) {
-                  edges {
-                    cursor
-                    node {
-                      id
-                      name
-                      email
-                    }
+                  ... on Order {
+                          name
+                          email
+                          id
+                          
+                        }
                   }
                   pageInfo {
                     hasNextPage
