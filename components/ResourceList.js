@@ -67,7 +67,7 @@ class ResourceListWithProducts extends React.Component {
               <ResourceList
                 showHeader
                 resourceName={{ singular: 'Order', plural: 'Orders' }}
-                items={data.edges}
+                items={data.orders.edges}
                 renderItem={(item) => {
                 
                  
