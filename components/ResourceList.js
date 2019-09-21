@@ -11,7 +11,7 @@ import store from 'store-js';
 import { Redirect } from '@shopify/app-bridge/actions';
 import { Context } from '@shopify/app-bridge-react';
 
-const GET_PRODUCTS_BY_ID = gql`
+const GET_ORDERS_BY_ID = gql`
   query getO($ids: [ID!]!) {
     nodes(ids: $ids) {
       ... on Order {
@@ -30,7 +30,7 @@ class ResourceListWithProducts extends React.Component {
 
   render() {
     const app = this.context;
-    const redirectToProduct = () => {
+    const redirectToOrder = () => {
       const redirect = Redirect.create(app);
       redirect.dispatch(
         Redirect.Action.APP,
@@ -40,7 +40,7 @@ class ResourceListWithProducts extends React.Component {
 
     const twoWeeksFromNow = new Date(Date.now() + 12096e5).toDateString();
     return (
-      <Query query={GET_PRODUCTS_BY_ID} variables={{ ids: store.get('ids') }}>
+      <Query query={GET_ORDERS_BY_ID} variables={{ ids: store.get('ids') }}>
         {({ data, loading, error }) => {
           if (loading) { return <div>Loading…</div>; }
           if (error) { return <div>{error.message}</div>; }
