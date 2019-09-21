@@ -12,29 +12,13 @@ import { Redirect } from '@shopify/app-bridge/actions';
 import { Context } from '@shopify/app-bridge-react';
 
 const GET_PRODUCTS_BY_ID = gql`
-  query getProducts($ids: [ID!]!) {
+  query getOrders($ids: [ID!]!) {
     nodes(ids: $ids) {
-      ... on Product {
-        title
-        handle
-        descriptionHtml
+      ... on Order {
+        name
+        email
         id
-        images(first: 1) {
-          edges {
-            node {
-              originalSrc
-              altText
-            }
-          }
-        }
-        variants(first: 1) {
-          edges {
-            node {
-              price
-              id
-            }
-          }
-        }
+        
       }
     }
   }
@@ -64,24 +48,11 @@ class ResourceListWithProducts extends React.Component {
             <Card>
               <ResourceList
                 showHeader
-                resourceName={{ singular: 'Product', plural: 'Products' }}
+                resourceName={{ singular: 'Order', plural: 'Orders' }}
                 items={data.nodes}
                 renderItem={(item) => {
-                  const media = (
-                    <Thumbnail
-                      source={
-                        item.images.edges[0]
-                          ? item.images.edges[0].node.originalSrc
-                          : ''
-                      }
-                      alt={
-                        item.images.edges[0]
-                          ? item.images.edges[0].node.altText
-                          : ''
-                      }
-                    />
-                  );
-                  const price = item.variants.edges[0].node.price;
+                
+                 
                   return (
                     <ResourceList.Item
                       id={item.id}
@@ -97,16 +68,12 @@ class ResourceListWithProducts extends React.Component {
                         <Stack.Item fill>
                           <h3>
                             <TextStyle variation="strong">
-                              {item.title}
+                              {item.name}
                             </TextStyle>
                           </h3>
                         </Stack.Item>
-                        <Stack.Item>
-                          <p>${price}</p>
-                        </Stack.Item>
-                        <Stack.Item>
-                          <p>Expires on {twoWeeksFromNow} </p>
-                        </Stack.Item>
+                      
+                       
                       </Stack>
                     </ResourceList.Item>
                   );
