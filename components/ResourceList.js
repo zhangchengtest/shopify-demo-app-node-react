@@ -85,7 +85,7 @@ class ResourceListWithProducts extends React.Component {
                         <Stack.Item fill>
                           <h3>
                             <TextStyle variation="strong">
-                              {item.name}
+                              {item.node.name}
                             </TextStyle>
                           </h3>
                         </Stack.Item>
