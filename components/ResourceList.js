@@ -27,13 +27,14 @@ import { Context } from '@shopify/app-bridge-react';
 const GET_PRODUCTS_BY_ID = gql`
               query {
                 orders(first: 3) {
-                  ... on Order {
-                          name
-                          email
-                          id
-                          
-                        }
-                  
+                  edges {
+                    cursor
+                    node {
+                      id
+                      name
+                      email
+                    }
+                  }
                   pageInfo {
                     hasNextPage
                   }
@@ -66,7 +67,7 @@ class ResourceListWithProducts extends React.Component {
               <ResourceList
                 showHeader
                 resourceName={{ singular: 'Order', plural: 'Orders' }}
-                items={data.nodes}
+                items={data.edges}
                 renderItem={(item) => {
                 
                  
