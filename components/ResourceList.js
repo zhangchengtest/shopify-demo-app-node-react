@@ -12,7 +12,7 @@ import { Redirect } from '@shopify/app-bridge/actions';
 import { Context } from '@shopify/app-bridge-react';
 
 const GET_PRODUCTS_BY_ID = gql`
-  query hhgetProducts($ids: [ID!]!) {
+  query hhgetOrders($ids: [ID!]!) {
     nodes(ids: $ids) {
       ... on Order {
         name
