@@ -12,8 +12,8 @@ import { Redirect } from '@shopify/app-bridge/actions';
 import { Context } from '@shopify/app-bridge-react';
 
 const GET_ORDERS_BY_ID = gql`
-  query getO() {
-    nodes() {
+  query getO($ids: 1002) {
+    nodes(ids: $ids) {
       ... on Order {
         name
         email
