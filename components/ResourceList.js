@@ -52,25 +52,11 @@ class ResourceListWithProducts extends React.Component {
                 resourceName={{ singular: 'Product', plural: 'Products' }}
                 items={data.nodes}
                 renderItem={(item) => {
-                  const media = (
-                    <Thumbnail
-                      source={
-                        item.images.edges[0]
-                          ? item.images.edges[0].node.originalSrc
-                          : ''
-                      }
-                      alt={
-                        item.images.edges[0]
-                          ? item.images.edges[0].node.altText
-                          : ''
-                      }
-                    />
-                  );
+                 
                   const price = item.variants.edges[0].node.price;
                   return (
                     <ResourceList.Item
                       id={item.id}
-                      media={media}
                       accessibilityLabel={`View details for ${item.title}`}
                       onClick={() => {
                         store.set('item', item);
