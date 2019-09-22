@@ -94,7 +94,18 @@ class ResourceListWithProducts extends React.Component {
                        <Stack.Item>
                           <p>Aug 13 at 06:08 am</p>
                         </Stack.Item>
-                       
+                        <Stack.Item>
+                        <p>sherry wu</p>
+                        </Stack.Item>
+                        <Stack.Item>
+                        <p>Paid</p>
+                        </Stack.Item>
+                        <Stack.Item>
+                        <p>Unfulfilled</p>
+                        </Stack.Item>
+                        <Stack.Item>
+                        <p>$4.90</p>
+                        </Stack.Item>
                       </Stack>
                     </ResourceList.Item>
                   );
