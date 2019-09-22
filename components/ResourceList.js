@@ -33,6 +33,8 @@ const GET_PRODUCTS_BY_ID = gql`
                       id
                       name
                       email
+                      currency
+
                     }
                   }
                   pageInfo {
@@ -89,7 +91,9 @@ class ResourceListWithProducts extends React.Component {
                             </TextStyle>
                           </h3>
                         </Stack.Item>
-                      
+                       <Stack.Item>
+                          <p>Aug 13 at 06:08 am</p>
+                        </Stack.Item>
                        
                       </Stack>
                     </ResourceList.Item>
