@@ -83,7 +83,7 @@ class ResourceListWithProducts extends React.Component {
                       }
                       }
                     >
-                      <Stack>
+                      <Stack fill>
                         <Stack.Item>
                           <h3>
                             <TextStyle variation="strong">
